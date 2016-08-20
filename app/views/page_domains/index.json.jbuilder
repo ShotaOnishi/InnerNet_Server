@@ -1,0 +1,1 @@
+json.array! @page_domains, partial: 'page_domains/page_domain', as: :page_domain

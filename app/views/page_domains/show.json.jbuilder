@@ -1,0 +1,1 @@
+json.partial! "page_domains/page_domain", page_domain: @page_domain

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :page_domains
   resources :page_tags
   resources :tags
   resources :pages
