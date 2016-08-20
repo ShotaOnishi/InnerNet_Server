@@ -7,7 +7,11 @@
 
 <p>
   <strong>Image:</strong>
-  <%= @page.image %>
+  <% if @page.image? %>
+    <div class="thumbnail">
+      <%= image_tag @page.image.url %>
+    </div>
+  <% end %>
 </p>
 
 <p>
