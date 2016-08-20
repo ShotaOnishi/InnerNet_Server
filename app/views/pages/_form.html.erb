@@ -16,10 +16,6 @@
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :image %><br>
-    <%= f.text_field :image %>
-  </div>
-  <div class="field">
     <%= f.label :is_favorite %><br>
     <%= f.check_box :is_favorite %>
   </div>
@@ -31,6 +27,24 @@
     <%= f.label :url %><br>
     <%= f.text_field :url %>
   </div>
+    <div class="field">
+      <% if @page.image? %>
+        <div class="thumbnail">
+          <%= image_tag @page.image.url %>
+        </div>
+      <% end %><br>
+      <%= f.label :image %><br>
+      <%= f.file_field :image %>
+      <%= f.hidden_field :image_cache %>
+    </div>
+    <div class="field">
+       <% if @page.persisted? && @page.image? %>
+         <label>
+           <%= f.check_box :remove_image %>
+           画像を削除
+         </label>
+       <% end %>
+    </div>
   <div class="actions">
     <%= f.submit %>
   </div>
