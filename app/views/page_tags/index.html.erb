@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Page Tags</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Page</th>
+      <th>Tag</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @page_tags.each do |page_tag| %>
+      <tr>
+        <td><%= page_tag.page %></td>
+        <td><%= page_tag.tag %></td>
+        <td><%= link_to 'Show', page_tag %></td>
+        <td><%= link_to 'Edit', edit_page_tag_path(page_tag) %></td>
+        <td><%= link_to 'Destroy', page_tag, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Page tag', new_page_tag_path %>

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Page:</strong>
+  <%= @page_tag.page %>
+</p>
+
+<p>
+  <strong>Tag:</strong>
+  <%= @page_tag.tag %>
+</p>
+
+<%= link_to 'Edit', edit_page_tag_path(@page_tag) %> |
+<%= link_to 'Back', page_tags_path %>
