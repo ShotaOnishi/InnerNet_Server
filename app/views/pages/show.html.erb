@@ -36,7 +36,13 @@
 
 <p>
   <strong>Tag:</strong>
-  <%= @page.tags.name %>
+  <% c=1 %>
+  <% @page.tags.each do |tag| %>
+    <strong>Name</strong>
+    <%= c %>
+    <%= tag.name %>
+    <% c=c+1 %>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_page_path(@page) %> |
