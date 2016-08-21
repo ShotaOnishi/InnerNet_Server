@@ -45,6 +45,15 @@
          </label>
        <% end %>
     </div>
+    <p>どめいん</p>
+    <%= f.fields_for :domain do |t| %>
+      <%= t.label :name %><br>
+      <%= t.text_field :name %>
+    <% end %>
+    <p>タグ</p>
+    <%= f.fields_for :tags do |tag| %>
+      <%= render "tag_fields", f: tag %>
+    <% end %>
   <div class="actions">
     <%= f.submit %>
   </div>
