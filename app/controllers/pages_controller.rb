@@ -15,6 +15,8 @@ class PagesController < ApplicationController
   # GET /pages/new
   def new
     @page = Page.new
+    @page.tags.build #Pageモデルに紐付いたtagに保存するための容器を作る.
+    @page.domain.build
   end
 
   # GET /pages/1/edit
@@ -69,6 +71,6 @@ class PagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def page_params
-      params.require(:page).permit(:title, :image, :is_favorite, :memo, :url)
+      params.require(:page).permit(:title, :image, :is_favorite, :memo, :url, tags_attributes: [:id, :name], domain_attributes: [:id, :name])
     end
 end

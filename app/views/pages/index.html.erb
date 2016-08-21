@@ -10,6 +10,8 @@
       <th>Is favorite</th>
       <th>Memo</th>
       <th>Url</th>
+      <th>domain</th>
+      <th>Tag</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,6 +24,20 @@
         <td><%= page.is_favorite %></td>
         <td><%= page.memo %></td>
         <td><%= page.url %></td>
+        <% page.domain.each do |domain| %>
+          <% if domain == "" then%>
+            <td>domainない</td>
+          <% else %>
+            <td><%= domain.name %></td>
+          <% end %>
+        <% end %>
+        <% page.tags.each do |tag| %>
+          <% if tag == "" then%>
+            <td>tagない</td>
+          <% else %>
+            <td><%= tag.name %></td>
+          <% end %>
+        <% end %>
         <td><%= link_to 'Show', page %></td>
         <td><%= link_to 'Edit', edit_page_path(page) %></td>
         <td><%= link_to 'Destroy', page, method: :delete, data: { confirm: 'Are you sure?' } %></td>
