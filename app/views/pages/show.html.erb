@@ -29,5 +29,15 @@
   <%= @page.url %>
 </p>
 
+<p>
+  <strong>Domain:</strong>
+  <%= @page.domain.name %>
+</p>
+
+<p>
+  <strong>Tag:</strong>
+  <%= @page.tags.name %>
+</p>
+
 <%= link_to 'Edit', edit_page_path(@page) %> |
 <%= link_to 'Back', pages_path %>
