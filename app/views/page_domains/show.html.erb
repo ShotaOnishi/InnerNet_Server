@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Page:</strong>
+  <%= @page_domain.page %>
+</p>
+
+<p>
+  <strong>Domain:</strong>
+  <%= @page_domain.domain %>
+</p>
+
+<%= link_to 'Edit', edit_page_domain_path(@page_domain) %> |
+<%= link_to 'Back', page_domains_path %>

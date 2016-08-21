@@ -1,0 +1,25 @@
+<%= form_for(@page_domain) do |f| %>
+  <% if @page_domain.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@page_domain.errors.count, "error") %> prohibited this page_domain from being saved:</h2>
+
+      <ul>
+      <% @page_domain.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :page_id %><br>
+    <%= f.text_field :page_id %>
+  </div>
+  <div class="field">
+    <%= f.label :domain_id %><br>
+    <%= f.text_field :domain_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
