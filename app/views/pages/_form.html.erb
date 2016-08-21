@@ -1,4 +1,4 @@
-<%= form_for(@page) do |f| %>
+<%= nested_form_for(@page) do |f| %>
   <% if @page.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@page.errors.count, "error") %> prohibited this page from being saved:</h2>
@@ -54,6 +54,7 @@
     <%= f.fields_for :tags do |tag| %>
       <%= render "tag_fields", f: tag %>
     <% end %>
+    <%= f.link_to_add "Add Event", :tags %>
   <div class="actions">
     <%= f.submit %>
   </div>
