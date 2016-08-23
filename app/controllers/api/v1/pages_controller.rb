@@ -12,9 +12,8 @@ module Api
       def show
       end
 
-      # curl -X POST -F 'page[image]=@stake.png' -F 'page[title]=test' -F 'page[is_favorite]=true' -F 'page[memo]=sample_memo' -F 'page[tags_attributes]=[{\"name\"=>\"Vuejs\"},{\"name\"=>\"Vuerouter\"}]' -F 'page[domain_attributes]={domain:3}' http://localhost:3000/api/v1/pages
+      # curl -X POST -F 'page[image]=@stake.png' -F 'page[title]=test' -F 'page[is_favorite]=true' -F 'page[memo]=sample_memo' -F 'page[tags_attributes]=[{name: "Vuejs"},{name: "Vuerouter"}]' -F 'page[domain_attributes]=Hatena' http://localhost:3000/api/v1/pages
       def create
-        params[:page][:domain_attributes] = eval(params[:page][:domain_attributes])
         params[:page][:tags_attributes] = eval(params[:page][:tags_attributes])
         @page = Page.new(page_params)
         params[:page][:tags_attributes].each do |tag|
@@ -23,6 +22,11 @@ module Api
           else
             @page.tags.new(name: tag["name"])
           end
+        end
+        if !(Domain.where(name: params[:page][:domain_attributes]) == []) then
+          @page.domain << Domain.where(name: params[:page][:domain_attributes]).first
+        else
+          @page.domain.new(name: params[:page][:domain_attributes])
         end
         respond_to do |format|
           if @page.save
