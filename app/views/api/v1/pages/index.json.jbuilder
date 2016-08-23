@@ -10,10 +10,6 @@ json.set! :data do
     # page.domainはcollection型, だからfirstがないとcollectionのmethodのnameを
     # 呼び出し, 常に"Domain"が返るようになる.
     # ん? page.domain.first.nameが使えないだと...
-    json.set! :domain do
-      json.array!(page.domain) do |domain|
-        json.merge! domain.name
-      end
-    end
+    json.domain page.domain.first
   end
 end
