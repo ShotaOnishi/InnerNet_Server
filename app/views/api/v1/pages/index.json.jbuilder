@@ -7,5 +7,6 @@ json.set! :data do
         json.merge! tag.name
       end
     end
+      json.domain page.domain.name
   end
 end
