@@ -51,7 +51,7 @@ module Api
         end
 
         def page_params
-          params.require(:page).permit(:title, :image, :is_favorite, :memo)
+          params.require(:page).permit(:title, :image, :is_favorite, :memo, :url)
         end
     end
   end
