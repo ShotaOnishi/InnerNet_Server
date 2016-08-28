@@ -10,6 +10,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'carrierwave'
 gem "nested_form"
 gem "better_errors"
+gem "ransack"
 gem "seed-fu"
 gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
