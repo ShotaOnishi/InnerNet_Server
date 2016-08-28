@@ -8,6 +8,14 @@ module Api
         @pages = Page.all
       end
 
+      # 検索キーワードがapi/v1/pages/find?q=hogehoge+fugafuga で来ると想定
+      def find
+        q = params[:q]
+        q = q.split()
+        # anyでor検索
+        @pages = Page.ransack(:tags_name_eq_any=> q ).result
+      end
+
 
       def show
       end
