@@ -3,11 +3,10 @@ module Api
     class PagesController < ApplicationBaseController
       before_action :set_page, only: [:show, :edit, :update, :destroy]
 
-
+      # curl GET http://localhost:3000//api/v1/pages
       def index
         @pages = Page.all
       end
-
       # 検索キーワードがapi/v1/pages/find?q=hogehoge+fugafuga で来ると想定
       def find
         q = params[:q]
@@ -16,7 +15,7 @@ module Api
         @pages = Page.ransack(:tags_name_eq_any=> q ).result
       end
 
-
+      # curl GET http://localhost:3000//api/v1/pages/1
       def show
       end
 
@@ -45,6 +44,17 @@ module Api
         end
       end
 
+
+      # curl -X POST -F 'page[is_favorite]=true' http://localhost:3000//api/v1/pages/1
+      def update
+        respond_to do |format|
+          if @page.update(page_params)
+            format.json { render nothing: true, status: :created }
+          else
+            format.json { render json: @page.errors, status: :unprocessable_entity }
+          end
+        end
+      end
 
       def destroy
         @page.destroy
