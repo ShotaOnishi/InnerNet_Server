@@ -43,9 +43,7 @@ module Api
           end
         end
       end
-
-
-      # curl -X POST -F 'page[is_favorite]=true' http://localhost:3000//api/v1/pages/1
+      # curl -X PUT -F 'page[is_favorite]=true' http://localhost:3000//api/v1/pages/1
       def update
         respond_to do |format|
           if @page.update(page_params)
@@ -56,6 +54,7 @@ module Api
         end
       end
 
+      # curl -X DELETE http://localhost:3000//api/v1/pages/1
       def destroy
         @page.destroy
         respond_to do |format|
