@@ -29,7 +29,6 @@ pages#find
 GET /api/v1/pages/find?q=Elixir
 {"data":[{"id":41,"title":"リアルタイムウェブな観点からElixir / Phoenix について - Qiita","image":"6239d3bf-ba22-4b9d-a188-3a57a30119fcpage.png","is_favorite":null,"memo":"","url":null,"created_at":"2016-08-27T14:33:51.215Z","updated_at":"2016-08-27T14:33:51.215Z","image_url":"/uploads/page/image/41/6239d3bf-ba22-4b9d-a188-3a57a30119fcpage.png","tag":["Elixir","Phonix"],"domain":{"id":5,"name":"あとでdomain送るお","created_at":"2016-08-24T16:49:54.735Z","updated_at":"2016-08-24T16:49:54.735Z"}},{"id":42,"title":"Phoenix","image":"ccc95806-4b44-424b-9e97-2ae25d5f46c1page.png","is_favorite":null,"memo":"","url":null,"created_at":"2016-08-27T14:33:56.757Z","updated_at":"2016-08-27T14:33:56.757Z","image_url":"/uploads/page/image/42/ccc95806-4b44-424b-9e97-2ae25d5f46c1page.png","tag":["Elixir","Phonix"],"domain":{"id":5,"name":"あとでdomain送るお","created_at":"2016-08-24T16:49:54.735Z","updated_at":"2016-08-24T16:49:54.735Z"}}]}
 
-
 pages#show  
 GET /api/v1/pages/1  
 curl GET http://localhost:3000//api/v1/pages/1
@@ -40,6 +39,9 @@ pages#update
 PUT /api/v1/pages/1
 curl -X PUT -F 'page[is_favorite]=true' http://localhost:3000//api/v1/pages/1
 
+pages#delete
+DELETE /api/v1/pages/1
+curl -X DELETE http://localhost:3000//api/v1/pages/1
 
 pages#create  
 POST /api/v1/pages  
